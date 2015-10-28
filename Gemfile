@@ -37,7 +37,9 @@ group :development, :test do
 end
 group :production do
   #gem 'pg'
+  gem 'mysql2', '~> 0.3.13'
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 group :test do
   gem 'capybara'
