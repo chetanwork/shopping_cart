@@ -1,0 +1,27 @@
+%table
+  %tr
+    %th Product Name
+    %td= show_prodcut_details(params[:product], "product_name")
+  
+  %tr
+    %th Product Description
+    %td= show_prodcut_details(params[:product], "product_description")
+  
+  %tr
+    %th Product Category
+    %td= show_prodcut_details(params[:product], "product_categories")
+
+  %tr
+    %th Product Price
+    %td= show_prodcut_details(params[:product], "product_price")
+
+  = form_tag update_items_user_carts_path do
+    %tr
+      %th Quantity
+      %td
+        = hidden_field_tag "user", params[:user]
+        = hidden_field_tag "product", params[:product]
+        = text_field_tag :product_quantity, "", :required => true
+    %tr
+      %th
+        = submit_tag "Add", class: "btn btn-primary"

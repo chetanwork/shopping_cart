@@ -1,0 +1,34 @@
+- if @product.empty? 
+  %strong There are no products available in your cart
+- else
+  %table
+    %tr
+      %th Item
+      %th Qty
+      %th Price
+    - @product.each do |p|
+      %tr
+        %td
+          = p.product_name
+        %td
+          = p.cart_product_quantity
+        %td
+          = calulate_price(p.cart_product_quantity, p.product_price)
+    %tr
+      %td
+        %strong SubTotal:
+      %td
+      %td= calulate_sub_total(@product)
+    %tr
+      %td
+        %strong Tax:
+      %td
+      %td= calulate_tax(@product)
+    %tr
+      %td
+        %strong Total:
+      %td
+      %td= calculate_total(@product)
+
+    %tr
+      %td= link_to 'Clear Cart Items', clear_cart_user_carts_path, :method =>:delete, class: "btn btn-danger"

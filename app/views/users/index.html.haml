@@ -1,0 +1,15 @@
+.container
+  .row
+    %h3 Users
+    = search_form_for @q do |f|
+      = f.label :name_cont
+      = f.search_field :name_cont
+      = f.label :email_cont
+      = f.search_field :email_cont
+      = f.submit "search"
+    .column
+      %table.table
+        %tbody
+          - @users.each do |user|
+            %tr
+              = render user

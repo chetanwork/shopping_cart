@@ -1,0 +1,26 @@
+%h3 User
+
+%table.table
+  %tr
+    %th Name
+    %td= "#{@user.name if @user.name}"
+
+  %tr
+    %th Email
+    %td= "#{@user.email if @user.email}"
+
+  %tr
+    %th Mobile Number
+    %td= "#{@user.mobile if @user.mobile}"
+    
+  %tr
+    %th Gender 
+    %td= "#{@user.gender if @user.gender}"
+    
+  %tr
+    %th Address 
+    %td= "#{@user.address if @user.address}"
+    
+  %tr
+    %th Profile Picture
+    %td= image_tag @user.avatar.url(:square) unless @user.avatar_file_name.nil? 
