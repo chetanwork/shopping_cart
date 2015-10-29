@@ -30,7 +30,7 @@ module UserCartsHelper
 			    end  
 			end 		
 		end
-		 round_tax = tax.inject(&:+).round(-1) rescue ''
+		 round_tax = tax.inject(&:+) rescue ''
 		return "$#{round_tax}"
 	end
 
