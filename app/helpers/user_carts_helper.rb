@@ -27,10 +27,10 @@ module UserCartsHelper
 			  	 sum = p.cart_product_quantity * p.product_price
 			  	 product_tax = (sum * location.tax_rates)/100
 			  	 tax << product_tax
-			  end  
+			    end  
 			end 		
 		end
-		 round_tax = tax.inject(&:+).round(-1) rescue ''
+		 round_tax = tax.inject(&:+) rescue ''
 		return "$#{round_tax}"
 	end
 
