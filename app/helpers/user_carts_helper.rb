@@ -25,7 +25,14 @@ module UserCartsHelper
 			elsif location.location == "California"
 				unless p.product_categories == "Food"
 			  	 sum = p.cart_product_quantity * p.product_price
+			  	 puts "+++++++++++++++++++++++++++++++++"
+			  	 puts sum.inspect
+			  	 puts location.tax_rates
+			  	 puts "+++++++++++++++++++++++++++++++++"
 			  	 product_tax = (sum * location.tax_rates)/100
+			  	 puts "+++++++++++++++++++++++++++++++++"
+			  	 puts product_tax.inspect
+			  	 puts "+++++++++++++++++++++++++++++++++"
 			  	 tax << product_tax
 			    end  
 			end 		
