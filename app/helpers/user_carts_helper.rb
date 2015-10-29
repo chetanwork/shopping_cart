@@ -19,25 +19,18 @@ module UserCartsHelper
 			if location.location == "New Jersey"
 			  unless p.product_categories == "Food" ||  p.product_categories == "Clothing"
 			  	 sum = p.cart_product_quantity * p.product_price
-			  	 product_tax = sum * location.tax_rates
+			  	 product_tax = (sum * location.tax_rates)/100
 			  	 tax << product_tax
 			  end
 			elsif location.location == "California"
 				unless p.product_categories == "Food"
 			  	 sum = p.cart_product_quantity * p.product_price
-			  	 puts "+++++++++++++++++++++++++++++++++"
-			  	 puts sum.inspect
-			  	 puts location.tax_rates
-			  	 puts "+++++++++++++++++++++++++++++++++"
 			  	 product_tax = (sum * location.tax_rates)/100
-			  	 puts "+++++++++++++++++++++++++++++++++"
-			  	 puts product_tax.inspect
-			  	 puts "+++++++++++++++++++++++++++++++++"
 			  	 tax << product_tax
 			    end  
 			end 		
 		end
-		 round_tax = tax.inject(&:+) rescue ''
+		 round_tax = tax.inject(&:+).round(-1) rescue ''
 		return "$#{round_tax}"
 	end
 
